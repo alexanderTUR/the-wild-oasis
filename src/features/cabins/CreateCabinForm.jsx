@@ -22,13 +22,16 @@ export const CreateCabinForm = ({ cabinData = {} }) => {
   const isWorking = isCreating || isEditing;
 
   const onFormSubmit = (data) => {
+    console.log(isWorking);
     const image = typeof data.image === 'string' ? data.image : data.image[0];
     if (isEditingCabin) {
+      console.log(isWorking);
       editCabin(
         { newCabinData: { ...data, image: image }, id: editId },
         {
           onSuccess: () => {
             reset();
+            console.log(isWorking);
           },
         },
       );
